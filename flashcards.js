@@ -60,6 +60,15 @@ form.addEventListener("submit", function (event) {
         case 'list':
             listCards();
             break;
+        case 'load':
+            loadDefault();
+            break;
+        case 'clear':
+            clearCards();
+            break;
+        case 'show':
+            showNextCard();
+            break;
         default:
             commandErrorEl.textContent = "Unknown command";
     }
