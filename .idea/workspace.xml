@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3970330-4fc7-4971-8626-ca099ce9bf4a" name="Changes" comment="Flashcards">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flashcards.js" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards.js" afterDir="false" />
-    </list>
+    <list default="true" id="e3970330-4fc7-4971-8626-ca099ce9bf4a" name="Changes" comment="Flashcards" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +81,7 @@
       <workItem from="1770660595053" duration="2088000" />
       <workItem from="1770662727993" duration="3860000" />
       <workItem from="1770692703546" duration="2875000" />
-      <workItem from="1770745723233" duration="1117000" />
+      <workItem from="1770745723233" duration="1286000" />
     </task>
     <task id="LOCAL-00001" summary="Flashcards">
       <option name="closed" value="true" />
@@ -110,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770695364050</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Flashcards">
+      <option name="closed" value="true" />
+      <created>1770746950621</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770746950621</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
