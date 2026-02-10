@@ -1,11 +1,11 @@
 // TODO: Code a program header with a summary, author's FULL name, date, and GitHub repository URL
-/*Chapter 3-4 Assignment - Flashcards
+/**********************************
+Chapter 3-4 Assignment - Flashcards
 This is a trainer to create flashcards, whether to add, clear, load, list, or quiz you on the flashcards.
 Author: Taylor Rath
 Date: 02/05/2026
 Github: https://github.com/tarath01/CH3_4FlashCards
- */
-
+ ***********************************/
 "use strict";
 
 // declare two arrays for the questions and answers
@@ -47,18 +47,25 @@ form.addEventListener("submit", function (event) {
     answerErrorEl.textContent = "";
     outputEl.textContent = "";
 
-  //  switch(commandEl.value) {
-     //   case "add":
-
     /* TODO: Finish me
      - use a switch to run the appropriate function based on the commandEl.value
      - use a default block to display an "Unknown command" error using the commandErrorEL
      - NOTE: for "add" pass the question and answer trim value to the addCard function
      */
 
+    switch(commandEl.value) {
+        case "add":
+            addCard(questionEl.value.trim(), answerEl.value.trim());
+            break;
+        case 'list':
+            listCards();
+            break;
+        default:
+            commandErrorEl.textContent = "Unknown command";
+    }
 });
 
-/**
+/*
  * Verify that both the question and answer contain a values using a boolean comparison
  * and if they are empty then display the error message(s) and return
  * make sure the first character of the question and answer are capitalized using the function
@@ -69,15 +76,46 @@ form.addEventListener("submit", function (event) {
  * @param question the input question trimmed value
  * @param answer the input answer trimmed value
  */
-function addCard(question, answer) {
-    let dataValidationError = false;
-    // TODO: Finish me
-}
-    if(question === "") {
-        questionErrorEl.textContent = "Question's required";
-        isValid = false;
-    }
+    function addCard(question, answer) {
+        let dataValidationError = false;
 
+        // validate question
+        if (question === "") {
+            questionErrorEl.textContent = "Question is required";
+            dataValidationError = true;
+        }
+
+        // validate answer
+        if (answer === "") {
+            answerErrorEl.textContent = "Answer is required";
+            dataValidationError = true;
+        }
+
+        // stop if validation failed
+        if (dataValidationError) return;
+
+        // capitalize first character
+        question = capitalizeFirstChar(question);
+        answer = capitalizeFirstChar(answer);
+
+        // ensure question ends with a question mark
+        if (question.endsWith("?")) {
+            question += "?";
+        }
+
+        // add to arrays
+        questions.push(question);
+        answers.push(answer);
+
+        // display the question #, question, and answer
+        const cardNumber = questions.length;
+        outputEl.textContent = `${cardNumber}. ${question}\n${answer}`;
+
+        // clear input fields
+        questionEl.value = "";
+        answerEl.value = "";
+        // TODO: Finish me
+}
 /**
  * Set the question and answer input fields to an empty string using textContent
  * If there are no questions, display an error message in the output area
@@ -87,6 +125,19 @@ function addCard(question, answer) {
  */
 function listCards() {
     // TODO: Finish me
+    questionEl.value = "";
+    answerEl.value = "";
+
+    if (questions.length === 0) {
+        outputEl.textContent = "No results found";
+        return;
+    }
+    let output = "All cards:\n";
+
+    for (let i in questions) {
+        output += `${Number(i) + 1}. ${questions[i]}\n`;
+    }
+    outputEl.textContent = output;
 }
 
 /**
@@ -96,6 +147,9 @@ function listCards() {
  * and display how many questions were loaded in the output area
  */
 function loadDefault() {
+    questionEl.value = "";
+    answerEl.value = "";
+
     // TODO: Finish me
 }
 
@@ -116,8 +170,8 @@ function loadDefault() {
  *    set displayAnswer to true
   */
 function showNextCard() {
-    // TODO: Finish me
 }
+    // TODO: Finish me
 
 /**
  * Set the question and answer input fields to an empty string using textContent
@@ -127,6 +181,15 @@ function showNextCard() {
  * display "All cards cleared." to the output area
  */
 function clearCards() {
+    questionEl.value = "";
+    answerEl.value = "";
+
+    questions.length = 0;
+    currentIndex = 0;
+    displayAnswer = false;
+    answers.length = 0;
+
+    outputEl.textContent = "All cards have been cleared.";
     // TODO: Finish me
 }
 
@@ -138,4 +201,6 @@ function clearCards() {
  */
 function capitalizeFirstChar(str) {
     // TODO: Finish me
+    if (!str) return str;
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
