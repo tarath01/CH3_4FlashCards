@@ -4,7 +4,7 @@ Chapter 3-4 Assignment - Flashcards
 This is a trainer to create flashcards, whether to add, clear, load, list, or quiz you on the flashcards.
 Author: Taylor Rath
 Date: 02/05/2026
-Github: https://github.com/tarath01/CH3_4FlashCards
+GitHub: https://github.com/tarath01/CH3_4FlashCards
  ***********************************/
 "use strict";
 
@@ -101,7 +101,10 @@ form.addEventListener("submit", function (event) {
         }
 
         // stop if validation failed
-        if (dataValidationError) return;
+        if(dataValidationError) {
+            outputEl.textContent = "Invalid Data";
+            return;
+        }
 
         // capitalize first character
         question = capitalizeFirstChar(question);
@@ -124,7 +127,7 @@ form.addEventListener("submit", function (event) {
         questionEl.value = "";
         answerEl.value = "";
         // TODO: Finish me
-}
+    }
 /**
  * Set the question and answer input fields to an empty string using textContent
  * If there are no questions, display an error message in the output area
@@ -134,8 +137,8 @@ form.addEventListener("submit", function (event) {
  */
 function listCards() {
     // TODO: Finish me
-    questionEl.value = "";
-    answerEl.value = "";
+    questionEl.textContent = "";
+    answerEl.textContent = "";
 
     if (questions.length === 0) {
         outputEl.textContent = "No results found";
@@ -147,6 +150,10 @@ function listCards() {
         output += `${Number(i) + 1}. ${questions[i]}\n`;
     }
     outputEl.textContent = output;
+
+    //clear input fields
+    questionEl.value = "";
+    answerEl.value = "";
 }
 
 /**
@@ -156,10 +163,14 @@ function listCards() {
  * and display how many questions were loaded in the output area
  */
 function loadDefault() {
+    // TODO: Finish me
+    questionEl.textContent = "";
+    answerEl.textContent = "";
     questionEl.value = "";
     answerEl.value = "";
 
-    // TODO: Finish me
+
+
 }
 
 /**
@@ -179,8 +190,22 @@ function loadDefault() {
  *    set displayAnswer to true
   */
 function showNextCard() {
-}
     // TODO: Finish me
+    questions.textContent = "";
+    answers.textContent = "";
+
+    if (questionErrorEl) {
+        outputEl.textContent = "There are no questions.";
+
+   // if(currentIndex === 0) {
+        displayAnswer = false;
+    } else {
+        displayAnswer = true;
+    }
+
+
+
+}
 
 /**
  * Set the question and answer input fields to an empty string using textContent
@@ -190,8 +215,9 @@ function showNextCard() {
  * display "All cards cleared." to the output area
  */
 function clearCards() {
-    questionEl.value = "";
-    answerEl.value = "";
+    // TODO: Finish me
+    questionEl.textContent = "";
+    answerEl.textContent = "";
 
     questions.length = 0;
     currentIndex = 0;
@@ -199,7 +225,6 @@ function clearCards() {
     answers.length = 0;
 
     outputEl.textContent = "All cards have been cleared.";
-    // TODO: Finish me
 }
 
 /**
