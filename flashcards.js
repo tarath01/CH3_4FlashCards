@@ -140,7 +140,7 @@ function listCards() {
     // TODO: Finish me
     questionEl.textContent = "";
     answerEl.textContent = "";
-
+//no questions
     if (questions.length === 0) {
         outputEl.textContent = "No results found";
         return;
@@ -210,7 +210,7 @@ function showNextCard() {
         outputEl.textContent = "There are no questions.";
         return;
     }
-
+//display information
     if(displayAnswer === true) {
         outputEl.textContent =
             `Card #${currentIndex + 1}\n` +
@@ -246,6 +246,7 @@ function showNextCard() {
  */
 function clearCards() {
     // TODO: Finish me
+    //clear question/answer fields
     questionEl.textContent = "";
     answerEl.textContent = "";
 
@@ -255,7 +256,7 @@ function clearCards() {
     currentIndex = 0;
     displayAnswer = false;
 
-
+//display to output area
     outputEl.textContent = "All cards cleared.";
 }
 
