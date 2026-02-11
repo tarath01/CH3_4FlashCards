@@ -162,11 +162,12 @@ function loadDefault() {
     // TODO: Finish me
     questionEl.textContent = "";
     answerEl.textContent = "";
-    questionEl.value = "";
-    answerEl.value = "";
 
-    //clear existing questions/answers
-    clearCards();
+    //clear existing cards
+    questions.length = 0;
+    answers.length = 0;
+    currentIndex = 0;
+    displayAnswer = false;
 
     //default questions and answers
     const defaultCards = [
@@ -176,13 +177,13 @@ function loadDefault() {
     ];
 
     //Load defaults
-         defaultCards.forEach(card => {
-             addCard(question, answer);
-         });
-
+        for (let i in defaultCards) {
+            questions.push(defaultCards[i].question);
+            answers.push(defaultCards[i].answer);
+        }
         //Display how many were loaded
-        outputEl.textContent = `${defaultCards.length} questions loaded.`;
-}
+    outputEl.textContent = `${defaultCards} questions loaded.`}
+
 /**
  * Set the question and answer input fields to an empty string using textContent
  * if there are no questions, display an error in the output area and return
@@ -209,23 +210,28 @@ function showNextCard() {
         return;
     }
 
-    //show answer
-    if (displayAnswer) {
+    if(displayAnswer === true) {
         outputEl.textContent =
-            `${currentIndex + 1}. ${questions[currentIndex]}\n${answers[currentIndex]}\n\nPress Run to see the next question.`;
+            `Card #${currentIndex + 1}\n` +
+            `Question: ${questions[currentIndex]}\n` +
+            `Answer: ${answers[currentIndex]}\n` +
+            `Press run to see the next question.`;
 
         displayAnswer = false;
+
+        //increment index
         currentIndex++;
 
+        //reset to 0 if at the end
         if (currentIndex === questions.length) {
             currentIndex = 0;
         }
-    }
-    //show question only
-    else {
+        //show question only
+    } else {
         outputEl.textContent =
-            `${currentIndex + 1}. ${questions[currentIndex]}\n\n Press Run to see the answer.`;
-
+            `Card #${currentIndex + 1}\n` +
+            `Question: ${questions[currentIndex]}\n\n` +
+            `Press run to see the answer.`;
         displayAnswer = true;
     }
 }
@@ -243,10 +249,11 @@ function clearCards() {
     answerEl.textContent = "";
 
     questions.length = 0;
-    currentIndex = 0;
-
-    displayAnswer = false;
     answers.length = 0;
+
+    currentIndex = 0;
+    displayAnswer = false;
+
 
     outputEl.textContent = "All cards cleared.";
 }
