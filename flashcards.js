@@ -111,7 +111,7 @@ form.addEventListener("submit", function (event) {
         answer = capitalizeFirstChar(answer);
 
         // ensure question ends with a question mark
-        if (question.endsWith("?")) {
+        if (!question.endsWith("?")) {
             question += "?";
         }
 
@@ -150,10 +150,6 @@ function listCards() {
         output += `${Number(i) + 1}. ${questions[i]}\n`;
     }
     outputEl.textContent = output;
-
-    //clear input fields
-    questionEl.value = "";
-    answerEl.value = "";
 }
 
 /**
@@ -169,10 +165,24 @@ function loadDefault() {
     questionEl.value = "";
     answerEl.value = "";
 
+    //clear existing questions/answers
+    clearCards();
 
+    //default questions and answers
+    const defaultCards = [
+        { question: "What is 5 + 5?", answer: "10." },
+        { question: "What color is the sky? ", answer: "Blue" },
+        { question: "How many pets are there?", answer: "4" }
+    ];
 
+    //Load defaults
+         defaultCards.forEach(card => {
+             addCard(question, answer);
+         });
+
+        //Display how many were loaded
+        outputEl.textContent = `${defaultCards.length} questions loaded.`;
 }
-
 /**
  * Set the question and answer input fields to an empty string using textContent
  * if there are no questions, display an error in the output area and return
@@ -191,20 +201,33 @@ function loadDefault() {
   */
 function showNextCard() {
     // TODO: Finish me
-    questions.textContent = "";
-    answers.textContent = "";
+    questionEl.textContent = "";
+    answerEl.textContent = "";
 
-    if (questionErrorEl) {
+    if (questions.length === 0) {
         outputEl.textContent = "There are no questions.";
-
-   // if(currentIndex === 0) {
-        displayAnswer = false;
-    } else {
-        displayAnswer = true;
+        return;
     }
 
+    //show answer
+    if (displayAnswer) {
+        outputEl.textContent =
+            `${currentIndex + 1}. ${questions[currentIndex]}\n${answers[currentIndex]}\n\nPress Run to see the next question.`;
 
+        displayAnswer = false;
+        currentIndex++;
 
+        if (currentIndex === questions.length) {
+            currentIndex = 0;
+        }
+    }
+    //show question only
+    else {
+        outputEl.textContent =
+            `${currentIndex + 1}. ${questions[currentIndex]}\n\n Press Run to see the answer.`;
+
+        displayAnswer = true;
+    }
 }
 
 /**
@@ -221,10 +244,11 @@ function clearCards() {
 
     questions.length = 0;
     currentIndex = 0;
+
     displayAnswer = false;
     answers.length = 0;
 
-    outputEl.textContent = "All cards have been cleared.";
+    outputEl.textContent = "All cards cleared.";
 }
 
 /**

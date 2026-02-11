@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3970330-4fc7-4971-8626-ca099ce9bf4a" name="Changes" comment="Worked on ReadMe">
+    <list default="true" id="e3970330-4fc7-4971-8626-ca099ce9bf4a" name="Changes" comment="finishing  fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flashcards.js" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,9 +37,6 @@
     &quot;assignee&quot;: &quot;tarath01&quot;
   }
 }</component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="cad17ca1-58eb-4b28-aab6-6090f4fd572c" />
-  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/tarath01/CH3_4FlashCards.git&quot;,
@@ -99,6 +97,7 @@
       <workItem from="1770692703546" duration="2875000" />
       <workItem from="1770745723233" duration="1286000" />
       <workItem from="1770747362042" duration="1141000" />
+      <workItem from="1770768679224" duration="3877000" />
     </task>
     <task id="LOCAL-00001" summary="Flashcards">
       <option name="closed" value="true" />
@@ -148,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770748368540</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="finishing  fixes">
+      <option name="closed" value="true" />
+      <created>1770758171667</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1770758171667</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +164,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Flashcards" />
     <MESSAGE value="Worked on ReadMe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on ReadMe" />
+    <MESSAGE value="finishing  fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="finishing  fixes" />
   </component>
 </project>
