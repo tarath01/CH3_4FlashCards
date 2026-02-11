@@ -29,11 +29,12 @@ over your flashcards. You can even delete and load default questions!
 ### Clear Questions
 ![Clear Questions](assets/clearQuestions.png)
 ### Load Default Questions
-![Load Default Questions]()
+![Load Default Questions](assets/load.png)
 ### List Questions
 ![List Questions](assets/listQuestion.png)
 ### Quiz
-![Quiz]()
+![Quiz](assets/quiz1.png)
+![Quiz](assets/quiz2.png)
 ### Maintainers
 [@tarath01](https://github.com/tarath01) Taylor Rath <br>
 

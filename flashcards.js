@@ -60,13 +60,13 @@ form.addEventListener("submit", function (event) {
         case 'list':
             listCards();
             break;
-        case 'load':
+        case 'load_default':
             loadDefault();
             break;
         case 'clear':
             clearCards();
             break;
-        case 'show':
+        case 'quiz':
             showNextCard();
             break;
         default:
@@ -87,6 +87,7 @@ form.addEventListener("submit", function (event) {
  */
     function addCard(question, answer) {
         let dataValidationError = false;
+        // TODO: Finish me
 
         // validate question
         if (question === "") {
@@ -126,7 +127,7 @@ form.addEventListener("submit", function (event) {
         // clear input fields
         questionEl.value = "";
         answerEl.value = "";
-        // TODO: Finish me
+
     }
 /**
  * Set the question and answer input fields to an empty string using textContent
@@ -171,8 +172,8 @@ function loadDefault() {
 
     //default questions and answers
     const defaultCards = [
-        { question: "What is 5 + 5?", answer: "10." },
-        { question: "What color is the sky? ", answer: "Blue" },
+        { question: "What is 5 + 5?", answer: "10" },
+        { question: "What color is the sky?", answer: "Blue" },
         { question: "How many pets are there?", answer: "4" }
     ];
 
@@ -182,7 +183,7 @@ function loadDefault() {
             answers.push(defaultCards[i].answer);
         }
         //Display how many were loaded
-    outputEl.textContent = `${defaultCards} questions loaded.`}
+     outputEl.textContent = `${defaultCards.length} questions loaded.`}
 
 /**
  * Set the question and answer input fields to an empty string using textContent
